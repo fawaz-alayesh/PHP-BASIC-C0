@@ -11,7 +11,8 @@
  *     Zie regel 36 van dit bestand
  * 4. Voeg de drie benodigde waardes toe aan de $transactions array met array_push() zodat de nieuwe gekochte stukje bitcoin wordt toegevoegd 
  */
-
+require 'index.php';
+$buttons=
 /*******************************************************************************************************************/
 /******************************************* OPDRACHT 2 doe je hieronder *******************************************/
 
