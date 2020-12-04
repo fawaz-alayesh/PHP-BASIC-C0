@@ -11,14 +11,15 @@
  *     Zie regel 36 van dit bestand
  * 4. Voeg de drie benodigde waardes toe aan de $transactions array met array_push() zodat de nieuwe gekochte stukje bitcoin wordt toegevoegd 
  */
-require 'index.php';
-$buttons=
+
+
 /*******************************************************************************************************************/
 /******************************************* OPDRACHT 2 doe je hieronder *******************************************/
 
 /* 
  * Opdracht 2: Zet hier de $buttons array neer 
  */
+$buttons=[700,500,20.25];
 
 
 /******************************************* OPDRACHT 2 doe je hierboven *******************************************/
@@ -41,11 +42,18 @@ function calculateBitcoinAmount()
         $euro = (int)$_GET['euro']; //Dit blokje code (if-statement) kun je laten staan.
     }
 
+
     //SCHRIJF JE CODE.
+
+    $prijs=getBitcoinPrice();
+    $berekening=$euro/$prijs;
+   
+    return [$euro,$prijs,$berekening];
 
 
 
 }
+ calculateBitcoinAmount();
 /******************************************* OPDRACHT 3 doe je hierboven *******************************************/
 /*******************************************************************************************************************/
 
@@ -75,6 +83,9 @@ $transactions = [
 if (isset($_GET['euro'])) {
 
     $euro = $_GET['euro']; //deze regel laten staan
+    $result=calculateBitcoinAmount();
+    ///var_dump($result);
+    array_push($transactions , calculateBitcoinAmount() );
 
     /* SCHRIJF HIER JE CODE.
      * Schrijf hieronder de code om de gekochte bitcoin aan de array $transactions toe te voegen.
