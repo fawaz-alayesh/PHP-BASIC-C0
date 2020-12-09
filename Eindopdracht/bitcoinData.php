@@ -44,11 +44,10 @@ function calculateBitcoinAmount()
 
 
     //SCHRIJF JE CODE.
-
     $prijs=getBitcoinPrice();
     $berekening=$euro/$prijs;
-   
-    return [$euro,$prijs,$berekening];
+    ///$euro= $koop;
+    return [$prijs,$euro,$berekening];
 
 
 
@@ -83,6 +82,7 @@ $transactions = [
 if (isset($_GET['euro'])) {
 
     $euro = $_GET['euro']; //deze regel laten staan
+    
     $result=calculateBitcoinAmount();
     ///var_dump($result);
     array_push($transactions , calculateBitcoinAmount() );
