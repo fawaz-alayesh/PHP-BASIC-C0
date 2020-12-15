@@ -38,21 +38,19 @@ $buttons=[700,500,20.25];
 
 function calculateBitcoinAmount()
 {
-    if (isset($_GET['euro'])) {
+    if (isset($_GET['euro'])) { //TRUE
         $euro = (int)$_GET['euro']; //Dit blokje code (if-statement) kun je laten staan.
     }
 
 
     //SCHRIJF JE CODE.
-    $prijs=getBitcoinPrice();
-    $berekening=$euro/$prijs;
-    ///$euro= $koop;
-    return [$prijs,$euro,$berekening];
-
-
-
+    if($prijs=getBitcoinPrice()){
+        $berekening=$euro/$prijs;
+        //$euro= $koop;
+        return [$prijs,$euro,$berekening];
+    }
 }
- calculateBitcoinAmount();
+//  calculateBitcoinAmount();
 /******************************************* OPDRACHT 3 doe je hierboven *******************************************/
 /*******************************************************************************************************************/
 
@@ -83,7 +81,7 @@ if (isset($_GET['euro'])) {
 
     $euro = $_GET['euro']; //deze regel laten staan
     
-    $result=calculateBitcoinAmount();
+    //$result=calculateBitcoinAmount();
     ///var_dump($result);
     array_push($transactions , calculateBitcoinAmount() );
 
